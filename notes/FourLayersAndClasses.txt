@@ -1,0 +1,31 @@
+Presentation Layer               IntegrationLayer (webservices)
+uses servicelyer
+
+					Service Layer - (uses DAL)
+
+
+                  Data Access Layer - CRUD works (indpenendent)
+				  
+				  
+				  
+1)Model Class(C) data
+
+2)	IDAO(I) DataAccessssLayer
+3) DAOImpl DAL
+
+
+ServiceLayer
+IService(I)
+ServiceImpl(C)
+
+
+6) Controller (UI) PL
+
+
+// Utility Class(C)
+//Validator Class(C)
+//
+
+9) ServiceProvider/ ServiceConsumer(C) IntegrationLayer
+
+10) View(C) representing data PDF/Text

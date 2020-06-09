@@ -1,6 +1,6 @@
-create database projectdb
+create database projectdb;
 
-use projectdb
+use projectdb;
 
 create table studenttab(
 id int PRIMARY KEY AUTO_INCREMENT,
@@ -9,6 +9,6 @@ scourse varchar(30),
 sfee int
 )
 
-select * from studenttab
+select * from studenttab;
 
 drop table studenttab
