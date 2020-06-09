@@ -1,0 +1,45 @@
+Hospital Management application
+
+Monolithic:
+Patient Registration
+Patient Clinical
+Bed Management
+Claim Management
+
+One huge code base and so big complexity:
+FIX A BUG, new features: difficult due to complexity
+
+Microservices:
+
+
+Samll And Focussed:
+Autonoumous
+can be all on different machine
+Indpendent dpeloyment
+will itneract with each other using network calls.
+API exposed to used by client.
+
+
+
+Clinical - MS1
+
+Registration - MS2
+
+Bed Management - MS3
+
+Claim Management - MS4
+
+Golden Rule: Can we change and deploy application wihtout changing/impacting other services?
+
+WHY microservices?
+every independent services can be implemented in different language
+for example: Clinical can use JAVA and Registration can use Python
+RobustNess: if Clinical down, it does not mean that Registration or other services go down
+Scalable: scalablity by services
+like : 3 clinical , 3 registration, 1 bed management
+Easy to deploy
+Reusable and Replacebale: 
+
+
+
+

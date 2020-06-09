@@ -1,0 +1,17 @@
+why layered architecture?
+
+Simplicity, we were not putting evertying in single class
+Sepeartion of concern, 
+easy maintenance
+
+Layers wise Technologices
+
+PL              SL                        DAL                     IL
+MVC            services					JDBC/ORM				Webservices
+
+spring-mvc                               spring-jpa
+client app                                 DB                    otherapps
+
+
+
+
