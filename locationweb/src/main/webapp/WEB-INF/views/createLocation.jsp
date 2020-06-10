@@ -12,7 +12,7 @@
 
 <body>
 
-<form action="" method="">
+<form action="saveLoc" method="post">
 
 
 	<pre>
@@ -20,14 +20,15 @@
 		Code: <input type="text" name="code" />
 		Name: <input type="text" name="name" />
 	
-		Type: Urban	<input type="radio" name="type" />
-			  Rural <input type="radio" name="type" />
+		Type: Urban	<input type="radio" name="type" value="URBAN"/>
+			  Rural <input type="radio" name="type" value="RURAL"/>
 	 
 		<input type="submit" value="save" />	  
 	</pre>
 
 
 </form>
+${msg}
 
 </body>
 </html>
