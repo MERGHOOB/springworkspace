@@ -1,0 +1,22 @@
+/// if modulename is Employee thand Model class name is Employee.java
+
+
+
+DAL
+
+// IEmployeeDAO
+
+// EmployeeDAOImpl
+
+
+Service Layer
+
+IEmployeeService
+
+EmployeeServiceImpl--> has A IEmployeeDAO
+
+
+PL
+EmployeeController has a IEmployeeService
+
+
