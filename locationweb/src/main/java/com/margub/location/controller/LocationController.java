@@ -1,6 +1,5 @@
 package com.margub.location.controller;
 
-import java.security.Provider.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +52,14 @@ public class LocationController {
 		modelMap.addAttribute("locations",allLocations);
 		
 		return "displayLocations";
+	}
+	
+	@RequestMapping("updateLocation")
+	public String showUpdate(@RequestParam("id")int id, ModelMap modelMap) {
+		Location location = locationService.getLocationById(id);
+		modelMap.addAttribute("locationToBeUpdated", location);
+		
+		return "editLocation";
 	}
 
 }
