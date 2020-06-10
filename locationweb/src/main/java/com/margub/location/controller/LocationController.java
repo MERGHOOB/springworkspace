@@ -1,5 +1,7 @@
 package com.margub.location.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -33,5 +35,12 @@ public class LocationController {
     public String home(){
         return "home";
     }
+	
+	@RequestMapping("/displayLocations")
+	public String displayLocations(ModelMap modelMap) {
+		List<Location> allLocations = locationService.getAllLocations();
+		modelMap.addAttribute("locations",allLocations);
+		return "displayLocations";
+	}
 
 }
