@@ -11,44 +11,44 @@ import com.margub.location.repos.ILocationReposistory;
 
 @Service
 public class LocationServiceImpl implements ILocationService {
-	
-	@Autowired
-	ILocationReposistory locationRepository;
 
-	@Override
-	public Location saveLocation(Location location) {
-		return locationRepository.save(location);
-		
-	}
+    @Autowired
+    ILocationReposistory locationRepository;
 
-	@Override
-	public Location updateLocation(Location location) {
-		// TODO Auto-generated method stub
-		return locationRepository.save(location);
-	}
+    @Override
+    public Location saveLocation(Location location) {
+        return locationRepository.save(location);
 
-	@Override
-	public void deleteLocation(Location location) {
-		// TODO Auto-generated method stub
-		 locationRepository.delete(location);
-		
-	}
+    }
 
-	@Override
-	public Location getLocationById(int id) {
-		// TODO Auto-generated method stub
-		Optional<Location> findById = locationRepository.findById(id);
-		if(findById.isPresent()) {
-			return findById.get();
-		}
-		return null;
-	}
+    @Override
+    public Location updateLocation(Location location) {
+        // TODO Auto-generated method stub
+        return locationRepository.save(location);
+    }
 
-	@Override
-	public List<Location> getAllLocations() {
-		// TODO Auto-generated method stub
-		
-		return locationRepository.findAll();
-	}
+    @Override
+    public void deleteLocation(Location location) {
+        // TODO Auto-generated method stub
+        locationRepository.delete(location);
+
+    }
+
+    @Override
+    public Location getLocationById(int id) {
+        // TODO Auto-generated method stub
+        Optional<Location> findById = locationRepository.findById(id);
+        if (findById.isPresent()) {
+            return findById.get();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Location> getAllLocations() {
+        // TODO Auto-generated method stub
+
+        return locationRepository.findAll();
+    }
 
 }
