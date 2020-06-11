@@ -1,13 +1,19 @@
 package com.margub.flightreservation.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Reservation extends AbstractEntity {
 
 	private Boolean checkedIn;
+	
 	private int numberOfBags;
+	
+	@OneToOne
 	private Passanger passanger;
+	
+	@OneToOne
 	private Flight flight;
 
 	public Boolean getCheckedIn() {
