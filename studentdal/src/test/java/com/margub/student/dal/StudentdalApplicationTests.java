@@ -13,44 +13,44 @@ import com.margub.student.dal.repos.StudentRepository;
 @SpringBootTest
 class StudentdalApplicationTests {
 
-	@Autowired
-	private StudentRepository studentRepostiory;
+    @Autowired
+    private StudentRepository studentRepostiory;
 
-	@Test
-	public void testCreateStudent() {
-	
-		Student entity = new Student();
-		entity.setName("JHone");
-		entity.setCourse("Java web service");
-		entity.setFee(30d);
+    @Test
+    public void testCreateStudent() {
 
-		studentRepostiory.save(entity);
-	}
-	
-	@Test
-	public void testFindStudent() {
-		Optional<Student> student = studentRepostiory.findById((long) 1d);
-		if(student.isPresent()) {
-			System.out.println(student.get().toString());
-		}
-	}
+        Student entity = new Student();
+        entity.setName("JHone");
+        entity.setCourse("Java web service");
+        entity.setFee(30d);
 
-	
-	@Test
-	public void testUpdateStudent() {
-		Optional<Student> student = studentRepostiory.findById((long) 1d);
-		if(student.isPresent()) {
-			Student studentObject = student.get();
-			studentObject.setCourse("webserviceDatalayer");
-			studentRepostiory.save(studentObject);
-		}
-	}
-	
-	
-	@Test
-	public void testDeleteStudent() {
-		studentRepostiory.deleteById((long)1d);
-	
-	}
+        studentRepostiory.save(entity);
+    }
+
+    @Test
+    public void testFindStudent() {
+        Optional<Student> student = studentRepostiory.findById((long) 1d);
+        if (student.isPresent()) {
+            System.out.println(student.get().toString());
+        }
+    }
+
+
+    @Test
+    public void testUpdateStudent() {
+        Optional<Student> student = studentRepostiory.findById((long) 1d);
+        if (student.isPresent()) {
+            Student studentObject = student.get();
+            studentObject.setCourse("webserviceDatalayer");
+            studentRepostiory.save(studentObject);
+        }
+    }
+
+
+    @Test
+    public void testDeleteStudent() {
+        studentRepostiory.deleteById((long) 1d);
+
+    }
 
 }
