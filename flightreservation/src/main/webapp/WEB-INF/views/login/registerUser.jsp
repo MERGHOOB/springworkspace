@@ -7,13 +7,14 @@
 <title>Register User</title>
 </head>
 <body>
+<h2>User Registration</h2>
 	<form action="registerUser" method="post">
 		<pre>
 		First Name: <input type="text" name="firstName" />
 		Last Name: <input type="text" name="lastName" />
 		User Name: <input type="text" name="email" />
 		Password: <input type="password" name="password" />
-		Confirm Password: <input type="password" name="password" />
+		Confirm Password: <input type="password" name="confirm-password" />
 		<input type="submit" value="Register"/>
 		</pre>
 	</form>
