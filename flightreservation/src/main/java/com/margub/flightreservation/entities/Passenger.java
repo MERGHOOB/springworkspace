@@ -4,14 +4,22 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Passanger extends AbstractEntity {
+public class Passenger extends AbstractEntity {
 
+	private long id;
 	private String firstName;
 	private String lastName;
 	private String middleName;
 	private String email;
 	private String phone;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -51,4 +59,6 @@ public class Passanger extends AbstractEntity {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
+
 }
