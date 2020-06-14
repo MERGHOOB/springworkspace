@@ -32,7 +32,7 @@ public class ReservationServiceImpl implements IReservationService {
 		passenger.setFirstName(reservationRequest.getPassengerFirstName());
 		passenger.setLastName(reservationRequest.getPassengerLastName());
 		passenger.setEmail(reservationRequest.getPassengerEmail());
-		passenger.setPhone(reservationRequest.getPassangerPhone());
+		passenger.setPhone(reservationRequest.getPassengerPhone());
 		
 		Passenger savedPassenger = passengerRepository.save(passenger);
 		

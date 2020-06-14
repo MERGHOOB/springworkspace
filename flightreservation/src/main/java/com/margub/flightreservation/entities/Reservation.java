@@ -3,10 +3,12 @@ package com.margub.flightreservation.entities;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Reservation extends AbstractEntity {
 
-	private Boolean checkedIn;
+	private boolean checkedIn;
 	
 	private int numberOfBags;
 	
@@ -16,11 +18,11 @@ public class Reservation extends AbstractEntity {
 	@OneToOne
 	private Flight flight;
 
-	public Boolean getCheckedIn() {
+	public boolean getCheckedIn() {
 		return checkedIn;
 	}
 
-	public void setCheckedIn(Boolean checkedIn) {
+	public void setCheckedIn(boolean checkedIn) {
 		this.checkedIn = checkedIn;
 	}
 

@@ -20,7 +20,7 @@ Arrival City:${flight.arrivalCity }<br/>
 
 <form action="completeReservation" method="post">
 <pre>
- <h2>Passanger Details:</h2>
+ <h2>Passenger Details:</h2>
  First Name: <input type="text" name="passengerFirstName"/>
  Last Name: <input type="text" name="passengerLastName"/>
  Email: <input type="text", name="passengerEmail"/>

@@ -8,7 +8,7 @@ public class ReservationRequest {
 	private String passengerFirstName;
 	private String passengerLastName;
 	private String passengerEmail;
-	private String passangerPhone;
+	private String passengerPhone;
 	
 	private String nameOnTheCard;
 	private String cardNumber;
@@ -39,11 +39,11 @@ public class ReservationRequest {
 	public void setPassengerEmail(String passengerEmail) {
 		this.passengerEmail = passengerEmail;
 	}
-	public String getPassangerPhone() {
-		return passangerPhone;
+	public String getPassengerPhone() {
+		return passengerPhone;
 	}
-	public void setPassangerPhone(String passangerPhone) {
-		this.passangerPhone = passangerPhone;
+	public void setPassengerPhone(String passengerPhone) {
+		this.passengerPhone = passengerPhone;
 	}
 	public String getNameOnTheCard() {
 		return nameOnTheCard;
