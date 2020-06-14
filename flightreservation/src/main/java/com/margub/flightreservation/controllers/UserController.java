@@ -31,18 +31,26 @@ public class UserController {
 		return "login/login";
 	}
 
+	@RequestMapping("/showLogin")
+	public String showLogin() {
+		
+		return "login/login";
+	}
+
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(
-			@RequestParam("email") String email, 
-			@RequestParam("password") String password,
+	public String login(@RequestParam("email") String email, @RequestParam("password") String password,
 			ModelMap modelMap) {
 
 		User user = userRepository.findByEmail(email);
-		System.out.println("user.getID" + user.getEmail());
-		if(user.getPassword().equals(password)) {
+		
+//		System.out.println("user.getID" + user.getEmail());
+		
+		if (user.getPassword().equals(password)) {
+			
 			return "findFlights";
 		}
 		else {
+		
 			String message = "Inavlid UserName or Password! Please try again";
 			modelMap.addAttribute("msg", message);
 			return "login/login";
