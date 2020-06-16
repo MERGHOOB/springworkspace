@@ -36,6 +36,7 @@ public class CheckinController {
 		ReservationUpdateRequest request = new ReservationUpdateRequest();
 		request.setId(reservationId);
 		request.setNumberOfBags(numberOfBags);
+		request.setCheckedIn(true);
 
 		reservationRestClient.updateReservation(request);
 

@@ -1,5 +1,6 @@
 package com.margub.flightcheckin.integration.dto;
 
+
 public class ReservationUpdateRequest {
 
 	private long id;
