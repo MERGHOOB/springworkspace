@@ -1,5 +1,7 @@
 package com.margub.flightreservation.controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +17,8 @@ import com.margub.flightreservation.repos.IReservationRepository;
 @CrossOrigin
 public class ReservationRestController {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(ReservationController.class);
+
 	@Autowired
 	IReservationRepository reservationRepository;
 
@@ -27,7 +31,7 @@ public class ReservationRestController {
 	@RequestMapping("/reservations/{id}")
 	public Reservation findReservation(@PathVariable("id") Long id) {
 
-		System.out.println("id is one: " + id);
+		LOGGER.info("inside findReservation for id: " + id);
 		return reservationRepository.getOne(id);
 	}
 
@@ -37,10 +41,14 @@ public class ReservationRestController {
 
 	@RequestMapping("/reservations")
 	public Reservation updateReservation(@RequestBody ReservationUpdateRequest request) {
+
+		LOGGER.info("inside updateReservation() for request: " + request);
+
 		Reservation reservation = reservationRepository.getOne(request.getId());
 		reservation.setCheckedIn(request.getCheckedIn());
 		reservation.setNumberOfBags(request.getNumberOfBags());
 
+		LOGGER.info("saving updated reservation");
 		return reservationRepository.save(reservation);
 	}
 }
