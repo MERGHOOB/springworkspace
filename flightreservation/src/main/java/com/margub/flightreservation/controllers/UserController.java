@@ -1,5 +1,7 @@
 package com.margub.flightreservation.controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -14,17 +16,22 @@ import com.margub.flightreservation.repos.IUserRepository;
 @Controller
 public class UserController {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
+
 	@Autowired
 	IUserRepository userRepository;
 
 	@RequestMapping("/showReg")
 	public String showRegisterationPage() {
 
+		LOGGER.info("Inside showRegistrationPage()");
 		return "login/registerUser";
 	}
 
 	@RequestMapping(value = "/registerUser", method = RequestMethod.POST)
 	public String registerUser(@ModelAttribute("user") User user) {
+
+		LOGGER.info("Inside registerUser()" + user);
 
 		userRepository.save(user);
 
@@ -32,8 +39,10 @@ public class UserController {
 	}
 
 	@RequestMapping("/showLogin")
-	public String showLogin() {
-		
+	public String showLoginPage() {
+
+		LOGGER.info("Inside showLoginPage()");
+
 		return "login/login";
 	}
 
@@ -41,16 +50,15 @@ public class UserController {
 	public String login(@RequestParam("email") String email, @RequestParam("password") String password,
 			ModelMap modelMap) {
 
+		LOGGER.info("inside login() and email is: " + email);
+
 		User user = userRepository.findByEmail(email);
-		
-//		System.out.println("user.getID" + user.getEmail());
-		
+
 		if (user.getPassword().equals(password)) {
-			
+
 			return "findFlights";
-		}
-		else {
-		
+		} else {
+
 			String message = "Inavlid UserName or Password! Please try again";
 			modelMap.addAttribute("msg", message);
 			return "login/login";

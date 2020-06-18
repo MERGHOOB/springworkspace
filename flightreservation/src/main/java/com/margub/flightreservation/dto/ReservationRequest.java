@@ -2,8 +2,6 @@ package com.margub.flightreservation.dto;
 
 public class ReservationRequest {
 	
-	
-	
 	private long flightId;
 	private String passengerFirstName;
 	private String passengerLastName;
@@ -68,6 +66,13 @@ public class ReservationRequest {
 	}
 	public void setSecurityCode(String securityCode) {
 		this.securityCode = securityCode;
+	}
+	@Override
+	public String toString() {
+		return "ReservationRequest [flightId=" + flightId + ", passengerFirstName=" + passengerFirstName
+				+ ", passengerLastName=" + passengerLastName + ", passengerEmail=" + passengerEmail
+				+ ", passengerPhone=" + passengerPhone + ", nameOnTheCard=" + nameOnTheCard + ", cardNumber="
+				+ cardNumber + ", expirationDate=" + expirationDate + ", securityCode=" + securityCode + "]";
 	}
 	
 
