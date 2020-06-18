@@ -25,7 +25,7 @@ public class PDFGenerator {
 
 			document.open();
 
-			document.add(generateTable(reservation));
+			document.add(generateTableForFlight(reservation));
 
 			document.close();
 
@@ -34,7 +34,7 @@ public class PDFGenerator {
 		}
 	}
 
-	private PdfPTable generateTable(Reservation reservation) {
+	private PdfPTable generateTableForFlight(Reservation reservation) {
 
 		int maxColumnInTable = 2;
 		PdfPTable table = new PdfPTable(maxColumnInTable);
@@ -44,31 +44,56 @@ public class PDFGenerator {
 
 		table.addCell(flightItenaryCell);
 
-		// ---------------Flight details
+		updateFlightDetails(reservation, maxColumnInTable, table);
+		updatePassengerDetails(reservation, maxColumnInTable, table);
+
+		return table;
+	}
+
+	private void updatePassengerDetails(Reservation reservation, int maxColumnInTable, PdfPTable table) {
+
+		PdfPCell passengerItineraryCell = new PdfPCell(new Phrase("Passenger Details"));
+		passengerItineraryCell.setColspan(maxColumnInTable);
+
+		table.addCell(passengerItineraryCell);
+
+		table.addCell("First Name");
+		table.addCell(reservation.getPassenger().getFirstName());
+
+		table.addCell("Last Name");
+		table.addCell(reservation.getPassenger().getLastName());
+
+		table.addCell("Email");
+		table.addCell(reservation.getPassenger().getEmail());
+
+		table.addCell("Phone");
+		table.addCell(reservation.getPassenger().getPhone());
+	}
+
+	private void updateFlightDetails(Reservation reservation, int maxColumnInTable, PdfPTable table) {
 
 		PdfPCell flightDetailsCell = new PdfPCell(new Phrase("Flight Details"));
 		flightDetailsCell.setColspan(maxColumnInTable);
 
 		table.addCell(flightDetailsCell);
-		
-		// Adding flight details taking updating value from reservation
-		
+
+		table.addCell("Airline");
+		table.addCell(reservation.getFlight().getOperatingAirlines());
+
 		table.addCell("Departure City");
 		table.addCell(reservation.getFlight().getDepartureCity());
-		
+
 		table.addCell("Arrival City");
 		table.addCell(reservation.getFlight().getArrivalCity());
-		
+
 		table.addCell("Flight Number");
 		table.addCell(reservation.getFlight().getFlightNumber());
-		
-		table.addCell("Departure Date");
-		table.addCell(reservation.getFlight().getDateOfDeparture().toString());	
-		
-		table.addCell("Departure time");
-		table.addCell(reservation.getFlight().getEstimatedDepartureTime().toString());	
 
-		return table;
+		table.addCell("Departure Date");
+		table.addCell(reservation.getFlight().getDateOfDeparture().toString());
+
+		table.addCell("Departure time");
+		table.addCell(reservation.getFlight().getEstimatedDepartureTime().toString());
 	}
 
 }
